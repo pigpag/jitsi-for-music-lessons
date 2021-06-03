@@ -1,5 +1,5 @@
 # jitsi-for-music-lessons
-A shell script automating the configuration process of setting up a Jitsi Meet host with high audio quality
+A shell script automating the configuration of Jitsi Meet hosts with password protection and high audio quality
 
 This script automates the steps as described in https://nicechord.com/post/jitsi-meet/
 
