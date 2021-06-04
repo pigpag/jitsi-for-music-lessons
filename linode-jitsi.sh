@@ -31,7 +31,7 @@ read -s -p "Re-enter password to confirm: " JITSI_PASSWD_RE
 echo
 
 if [ "$JITSI_PASSWD" != "$JITSI_PASSWD_RE" ]; then
-    echo "error: password do not match"
+    echo "error: passwords do not match"
     exit -1
 fi
 if [ -z "$JITSI_PASSWD" ]; then
@@ -50,7 +50,7 @@ if [ ! -f "$HOST_CONFIG_FILE" ]; then
 fi
 
 /usr/bin/sed -i s/anonymous/internal_hashed/ "$HOST_CONFIG_FILE"
-/usr/bin/sed -i '/muc_lobby_whitelist.*$/a\\n\nVirtualHost "guest.$HOST"\n    authentication = "anonymous"\n    c2s_require_encryption = false' "$HOST_CONFIG_FILE"
+/usr/bin/sed -i '/muc_lobby_whitelist.*$/a\\n\nVirtualHost "$GUEST_HOST"\n    authentication = "anonymous"\n    c2s_require_encryption = false' "$HOST_CONFIG_FILE"
 
 JS_CONFIG_FILE="/etc/jitsi/meet/$HOST-config.js"
 if [ ! -f "$JS_CONFIG_FILE" ]; then
