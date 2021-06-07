@@ -50,7 +50,7 @@ if [ ! -f "$HOST_CONFIG_FILE" ]; then
 fi
 
 /usr/bin/sed -i s/anonymous/internal_hashed/ "$HOST_CONFIG_FILE"
-/usr/bin/sed -i '/muc_lobby_whitelist.*$/a\\n\nVirtualHost "$GUEST_HOST"\n    authentication = "anonymous"\n    c2s_require_encryption = false' "$HOST_CONFIG_FILE"
+/usr/bin/sed -i '/muc_lobby_whitelist.*$/a\\nVirtualHost "$GUEST_HOST"\n    authentication = "anonymous"\n    c2s_require_encryption = false' "$HOST_CONFIG_FILE"
 
 JS_CONFIG_FILE="/etc/jitsi/meet/$HOST-config.js"
 if [ ! -f "$JS_CONFIG_FILE" ]; then
@@ -74,7 +74,7 @@ fi
 echo "org.jitsi.jicofo.auth.URL=XMPP:$HOST" >> "$SIP_CONFIG_FILE"
 
 # Setup jitsi account
-/usr/bin/prosodyctl register "$JITSI_USER" "$HOST" "$JITSI_PASSWD"
+/usr/bin/prosodyctl register $JITSI_USER $HOST $JITSI_PASSWD
 
 # Restart services
 /usr/bin/systemctl restart prosody
