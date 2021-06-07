@@ -5,7 +5,7 @@ This script automates the steps as described in https://nicechord.com/post/jitsi
 
 You need to first create a preconfigured Jitsi host using Linode's Marketplace.  Then, copy and paste the following line into the terminal of your Jitsi Linode host:
 ```
-URL=https://raw.githubusercontent.com/pigpag/jitsi-for-music-lessons/main/linode-jitsi.sh; CONTENT=$(curl -sL $URL); [ $(md5sum<<<"$CONTENT" | head -c 32) = "c3ba05ab15404811143b247f41d8dc68" ] && sudo bash -c "$CONTENT"
+URL=https://raw.githubusercontent.com/pigpag/jitsi-for-music-lessons/main/linode-jitsi.sh; CONTENT=$(curl -sL $URL); [ $(md5sum<<<"$CONTENT" | head -c 32) = "1ef32c315bba05fda96ed3f2fb3de9b6" ] && sudo bash -c "$CONTENT"
 ```
 
 Follow the prompts to finish the additional configuration.
